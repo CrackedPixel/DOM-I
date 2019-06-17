@@ -6,6 +6,8 @@ const siteContent = {
     "nav-item-4": "Features",
     "nav-item-5": "About",
     "nav-item-6": "Contact",
+    "nav-item-7": "Store",
+    "nav-item-8": "Locator",
     "img-src": "img/logo.png"
   },
   "cta": {
@@ -41,8 +43,18 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
+
+// Setup
+let addOne = document.createElement("a");
+addOne.href = "#";
+let addTwo = document.createElement("a");
+addTwo.href = "#";
+document.querySelector('header nav').append(addOne);
+document.querySelector('header nav').prepend(addTwo);
+let numNav = document.querySelectorAll(`header nav a`).length;
+
 // Nav
-for (let i = 1; i < 7; ++i){
+for (let i = 1; i < numNav+1; ++i){
   document.querySelector(`header nav a:nth-child(${i})`).textContent = siteContent.nav["nav-item-" + i];
 }
 // CTA
@@ -74,6 +86,12 @@ document.querySelector('.contact p:nth-child(4)').textContent = siteContent["con
 document.querySelector('footer p').textContent = siteContent.footer.copyright;
 
 
+
+
+// Task 3 -- add new content
+for (let i = 1; i < numNav+1; ++i){
+  document.querySelector(`header nav a:nth-child(${i})`).setAttribute('style', "color:green;");
+}
 
 
 
